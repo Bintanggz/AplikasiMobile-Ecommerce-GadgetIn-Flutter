@@ -3,12 +3,16 @@ import 'package:http/http.dart' as http;
 import 'package:uuid/uuid.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 class PaymentService {
   // TODO: Ganti dengan Server Key dan Client Key dari Midtrans Dashboard
   // Untuk production, simpan di environment variables atau backend server
-  static const String _serverKey = 'YOUR_MIDTRANS_SERVER_KEY';
-  static const String _clientKey = 'YOUR_MIDTRANS_CLIENT_KEY';
+  // static const String _serverKey = 'YOUR_MIDTRANS_SERVER_KEY';
+  // static const String _clientKey = 'YOUR_MIDTRANS_CLIENT_KEY';
+  static final String _serverKey = dotenv.get('MIDTRANS_SERVER_KEY');
+  static final String _clientKey = dotenv.get('MIDTRANS_CLIENT_KEY');
   static const String _baseUrl = 'https://app.sandbox.midtrans.com'; // Sandbox
   // static const String _baseUrl = 'https://app.midtrans.com'; // Production
 
